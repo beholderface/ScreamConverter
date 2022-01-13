@@ -9,4 +9,4 @@ The second and third characters control what characters zeros and ones get repla
 
 Put the text you wish to convert in input.txt, the converted text will appear in output.txt.
 
-You must create your own input, output, and config files for this to work.
+You must create your own input and config files for this to work, it will create a new output.txt file if there is none. Beware of existing output.txt files being overwritten.
