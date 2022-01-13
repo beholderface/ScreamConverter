@@ -15,8 +15,6 @@ int main(int argc, char* argv[]) {
 	char inputFile[] = "input.txt";
 	FILE* pOut;
 	char outputFile[] = "output.txt";
-	FILE* pConfig;
-	char configFile[] = "config.txt";
 	int failure = 0;
 	int binArray[] = { 0,0,0,0,0,0,0,0 };
 	char screamArray[] = "aaaaaaaa";
