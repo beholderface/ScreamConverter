@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct config {
 	int scream;
@@ -9,6 +10,7 @@ struct config {
 
 void toBinary(int input, int* arr);
 void readConfig(struct config* config);
+void wait(int delay);
 
 int main(int argc, char* argv[]) {
 	FILE* pIn;
@@ -37,16 +39,18 @@ int main(int argc, char* argv[]) {
 		failure = 1;
 	}
 
-	readConfig(&config);
-
 	if (failure) {
 		exit(1);
 	}
+
+	readConfig(&config);
+
 	
+	printf("Converted text: \n\"");
 	for (i = 0; c != EOF; i++) {
 		c = fgetc(pIn);
-		printf("%c", c);
-		if (/*c != '\n' && c != ' ' && */c != EOF) {
+		if (c != EOF) {
+			printf("%c", c);
 			toBinary((int)c, binArray);
 			if (config.scream) {
 				for (j = 0; j < 8; j++) {
@@ -78,10 +82,11 @@ int main(int argc, char* argv[]) {
 	if (c == EOF) {
 		i--;
 	}
-	printf("\n\n%d character(s) converted.", i);
+	printf("\"\n\n%d character(s) converted.", i);
 
 	fclose(pIn);
 	fclose(pOut);
+	wait(5);
 	return 0;
 }
 
@@ -121,4 +126,15 @@ void readConfig(struct config* config) {
 	config->zero = fgetc(pConfig);
 	config->one = fgetc(pConfig);
 	fclose(pConfig);
+}
+
+void wait(int delay) {
+	time_t t;
+	time_t startTime;
+	time_t currentTime;
+	startTime = time(&t);
+	currentTime = startTime;
+	while (currentTime != (startTime + delay)) {
+		currentTime = time(&t);
+	}
 }
