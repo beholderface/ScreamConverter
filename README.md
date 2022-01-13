@@ -8,3 +8,5 @@ The first one controls whether it outputs regular binary or replaces ones and ze
 The second and third characters control what characters zeros and ones get replaced with, if the program is running in arbitrary-character mode.
 
 Put the text you wish to convert in input.txt, the converted text will appear in output.txt.
+
+You must create your own input, output, and config files for this to work.
