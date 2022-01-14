@@ -10,7 +10,7 @@ struct config {
 
 void readConfig(struct config* config);
 void wait(int delay);
-int readBinary(FILE* fp, struct config config);
+int readBinary(FILE* fp, FILE* pOut, struct config config);
 
 int main(int argc, char* argv[]) {
 	FILE* pIn;
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 	}
 	printf("Decoded text:\n\"");
 	while (c != EOF) {
-		c = readBinary(pIn, config);
+		c = readBinary(pIn, pOut, config);
 		if (c != EOF) {
 			i++;
 			fprintf(pOut, "%c", c);
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 
-int readBinary(FILE* fp, struct config config) {
+int readBinary(FILE* fp, FILE* pOut, struct config config) {
 	char c;
 	int i;
 	int j;
@@ -77,6 +77,7 @@ int readBinary(FILE* fp, struct config config) {
 			}
 			else {
 				printf("\n\nUnknown character encountered. Please clean up your input file or set up your configuration file to include such characters.\n");
+				fprintf(pOut, "\nUnknown character encountered. Please clean up your input file or set up your configuration file to include such characters.");
 				wait(5);
 				exit(1);
 			}
