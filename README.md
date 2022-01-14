@@ -1,7 +1,8 @@
 # ScreamConverter
 Converts ascii text to binary or arbitrary characters.
 This is *only* compatible with ascii characters, I don't think it would work very well if you tried to use any characters that take up more than 8 bits.
-When I tried sticking an emoji into the encoder it just put 32 zeros in a row
+
+When I tried sticking an emoji into the encoder it just put 32 zeros in a row.
 
 Configuration is done via config.txt files.
 There should be two characters in each file.
