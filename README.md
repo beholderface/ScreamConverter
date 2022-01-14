@@ -11,4 +11,4 @@ The decoder and encoder must use separate I/O files.
 
 You must create your own input and config files for this to work, it will create a new output.txt file if there is none. Beware of existing output.txt files being overwritten.
 
-The decoder input ignores whitespace characters, encoding using them is not a good idea. If the decoder encounters a character it is not configured to handle, it will treat is as if it was a zero, possibly causing inaccurate results.
+The decoder input ignores whitespace characters, encoding using them is not a good idea. If the decoder encounters a character it is not configured to handle, it will close.
