@@ -49,6 +49,9 @@ int main(int argc, char* argv[]) {
 		c = fgetc(pIn);
 		if (c != EOF) {
 			printf("%c", c);
+			if (c == ' ') {
+				fprintf(pOut, " ");
+			}
 			toBinary((int)c, binArray);
 				for (j = 0; j < 8; j++) {
 					if (binArray[j] == 0) {
@@ -61,14 +64,14 @@ int main(int argc, char* argv[]) {
 				for (j = 0; j < 8; j++) {
 					fprintf(pOut, "%c", screamArray[j]);
 				}
+				fprintf(pOut, " ");
 			}
-			fprintf(pOut, " ");
-		}
-		if (c == '\n') {
-			fprintf(pOut, "\n");
-		}
-		if (c == ' ') {
-			fprintf(pOut, " ");
+			if (c == '\n') {
+				fprintf(pOut, "\n");
+			}
+			if (c == ' ') {
+				fprintf(pOut, " ");
+			}
 		}
 	if (c == EOF) {
 		i--;
