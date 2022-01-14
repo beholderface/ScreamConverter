@@ -72,8 +72,13 @@ int readBinary(FILE* fp, struct config config) {
 			if (c == config.zero) {
 				binArray[i] = 0;
 			}
-			if (c == config.one) {
+			else if (c == config.one) {
 				binArray[i] = 1;
+			}
+			else {
+				printf("\n\nUnknown character encountered. Please clean up your input file or set up your configuration file to include such characters.\n");
+				wait(5);
+				exit(1);
 			}
 		}
 		else if (isspace(c)){
